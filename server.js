@@ -55,14 +55,8 @@ checkNew();
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 app.use(helmet());
-https.createServer({
-    
-    key: fs.readFileSync('key.pem'),
-    cert: fs.readFileSync('cert.pem')
-  }, app)
-  .listen(3000, function () {
-    console.log('Example app listening on port 3000! Go to https://localhost:3000/')
-  })
+app.listen('8080', 'localhost');
+console.log("Go to localhost/8080");
 
   app.set('view engine', 'ejs');
 
