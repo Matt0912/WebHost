@@ -25,7 +25,7 @@ app.use(lower);
 app.use(ban);
 app.use("/bootstrap.html", auth);
 var options = { setHeaders: deliverXHTML, key: fs.readFileSync('key.pem'), cert: fs.readFileSync('cert.pem')};
-app.use(express.static("public", options));
+app.use(express.static(__dirname + "/Public"));
 app.use(session({
 	secret: 'secret',
 	resave: true,
