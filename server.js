@@ -1,6 +1,9 @@
 // Sample express web server.  Supports the same features as the provided server,
 // and demonstrates a big potential security loophole in express.
 "use strict";
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 var express = require("express");
 var app = express();
 var session = require('express-session');
@@ -55,8 +58,7 @@ checkNew();
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 app.use(helmet());
-app.listen('8080', 'localhost');
-console.log("Go to localhost/8080");
+app.listen((process.env.PORT || 5000), ()=> {console.log('server running on port ${PORT}')});
 
   app.set('view engine', 'ejs');
 
