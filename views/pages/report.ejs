@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <%- include('../partials/head') %>
+
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
+    <script src="js/report.js" defer="defer"></script>
+</head>
+<body id="grad">
+
+<header>
+    <%- include('../partials/header') %>
+</header>
+
+<div class="container report-container">
+    <div class = "row report-element" id="report-title">
+        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-12">
+            <svg
+               xmlns:dc="http://purl.org/dc/elements/1.1/"
+               xmlns:cc="http://creativecommons.org/ns#"
+               xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+               xmlns:svg="http://www.w3.org/2000/svg"
+               xmlns="http://www.w3.org/2000/svg"
+               xmlns:xlink="http://www.w3.org/1999/xlink"
+               xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+               xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+               width="1.25in"
+               height="1.25in"
+               viewBox="0 0 15 12"
+               version="1.1"
+               id="svg941"
+               inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+               sodipodi:docname="newlogopath.svg">
+              <defs
+                 id="defs935">
+                <linearGradient
+                   inkscape:collect="always"
+                   id="linearGradient850">
+                  <stop
+                     style="stop-color:#56aef2;stop-opacity:1;"
+                     offset="0"
+                     id="stop846" />
+                  <stop
+                     style="stop-color:#56aef2;stop-opacity:0;"
+                     offset="1"
+                     id="stop848" />
+                </linearGradient>
+                <linearGradient
+                   inkscape:collect="always"
+                   xlink:href="#linearGradient850"
+                   id="linearGradient917"
+                   gradientUnits="userSpaceOnUse"
+                   gradientTransform="translate(49.845766,11.893494)"
+                   x1="59.644428"
+                   y1="51.661701"
+                   x2="196.60236"
+                   y2="50.90575" />
+              </defs>
+              <sodipodi:namedview
+                 id="base"
+                 pagecolor="#ffffff"
+                 bordercolor="#666666"
+                 borderopacity="1.0"
+                 inkscape:pageopacity="0.0"
+                 inkscape:pageshadow="2"
+                 inkscape:zoom="7.9195959"
+                 inkscape:cx="0.39418052"
+                 inkscape:cy="22.985399"
+                 inkscape:document-units="mm"
+                 inkscape:current-layer="layer1"
+                 showgrid="false"
+                 fit-margin-top="0"
+                 fit-margin-left="0"
+                 fit-margin-right="0"
+                 fit-margin-bottom="0"
+                 inkscape:window-width="1920"
+                 inkscape:window-height="1027"
+                 inkscape:window-x="-8"
+                 inkscape:window-y="-8"
+                 inkscape:window-maximized="1" />
+              <g
+                 inkscape:label="Layer 1"
+                 inkscape:groupmode="layer"
+                 id="layer1"
+                 transform="translate(-65.773994,-62.568934)">
+                <g
+                   id="g1665">
+                  <g
+                     aria-label="A"
+                     transform="scale(1.0211452,0.97929264)"
+                     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.80885983px;line-height:1.25;font-family:'Ikaros Sans';-inkscape-font-specification:'Ikaros Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:none;fill-opacity:1;stroke:#56aef2;stroke-width:0.28;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+                     id="text2382" />
+                  <path
+                     class = "path"
+                     id="path1647"
+                     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.80885983px;line-height:1.25;font-family:'Ikaros Sans';-inkscape-font-specification:'Ikaros Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.28;stroke-miterlimit:4;stroke-dasharray:50;stroke-opacity:0.8"
+                     d="m 72.579514,67.361281 -2.007147,-4.451295 -4.581964,10.195052 h 1.60293 l 0.740979,-1.595244 h 2.423051 m 0.479559,-1.36981 -2.367712,-2e-6 1.602931,-3.53854 1.177345,2.599039 m 5.08908,2.349402 0.710734,1.595242 h 1.648297 L 74.50051,62.950074 69.918546,73.145125 h 1.602931 l 0.740978,-1.595242 z m -0.635124,-1.319701 h -3.205863 l 1.602931,-3.538539 z" />
+                </g>
+              </g>
+            </svg>
+        </div>
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-12">
+            <h1>Assessment Report</h1>
+            <h5>Matthew Meades and Mathias Munk</h5>
+        </div>
+    </div>
+    <div class = "row report-element report-section">
+        <div class = "report-heading"><h3>Overview</h3></div>
+        <div class = "report-text" >
+            <h4 class="report-text-spacing"><a href = "/" class="report-text-link">Algorithm Animation</a> is a website designed to help students learn about different algorithms in a visual, interactive way. This can
+            be seen in the <a href = "/learnbubble" class="report-text-link">bubblesort</a> page with a step-by-step breakdown of the algorithm, interactive visualisations, and code showing how
+            the algorithm can be programmed.</h4>
+
+             <h4 class="report-text-spacing">The user can also <a href = "/signup" class="report-text-link">sign up/</a><a href = "/login" class="report-text-link">login</a> to
+             <a href = "/testhome" class="report-text-link">take tests </a>in the different algorithms. They can compare how well they have done against other users in the
+             <a href = "/testhome" class="report-text-link">leaderboards</a> section, or track their individual progress on their <a href = "/account" class="report-text-link">account page</a>.
+            </h4>
+
+            <h4 class="report-text-spacing">Currently, the <a href = "/learnbubble" class="report-text-link">learn bubblesort</a> page is the only
+            <a href = "/learnhome" class="report-text-link">learn</a> page which is fully functional with unique content, but this is exemplary of the format and content for the other two pages
+            (which currently contain filler text). All other website pages are complete and functional.
+        </div>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <td colspan="2" class="table-title">Estimated Grades</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th>Website Element</th>
+                <th>Estimated Grade</th>
+            </tr>
+            <tr>
+                <td><a href="#HTML-section" class="report-table-entry">HTML</a></td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td><a href="#CSS-section" class="report-table-entry">CSS</a></td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td><a href="#JS-section" class="report-table-entry">JavaScript</a></td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td><a href="#PNG-section" class="report-table-entry">PNG Images</a></td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td><a href="#SVG-section" class="report-table-entry">SVG Images</a></td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td><a href="#server-section" class="report-table-entry">Server</a></td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td><a href="#database-section" class="report-table-entry">Database</a></td>
+                <td>A</td>
+            </tr>
+            <tr>
+                <td><a href="#dynamic-section" class="report-table-entry">Dynamic Pages</a></td>
+                <td>B</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class = "row report-element report-section" id="HTML-section">
+            <div class = "report-heading"><h4>HTML</h4></div>
+        <div class = "report-text">
+            <ul class="report-text-spacing">
+                <li>Writing the HTML code for our website taught us the importance of correctly structuring and tagging HTML elements,
+                otherwise the page and its corresponding style sheet quickly become difficult to format. This was a steep learning curve
+                but by the end, we are both happy with our ability to create a nicely-formatted, readable website.</li>
+                <li>The EJS framework was adopted to deliver pages using partials as templates (i.e. the head, header, and footer sections). Prior to
+                this, the code was repeated for every page which wasn't sustainable or good practice.</li>
+                <li>The Bootstrap 4 framework was implemented, giving access to its wide range of pre-built components and allowing seamless,
+                responsive web-pages to be created.</li>
+                <li>Bootstrap also allows elements to reformat depending on the window size to accommodate mobile and desktop users. This can be seen
+                 in the navigation bar, the <a href="/learnhome" class="report-text-link">Learn - Home</a> page, and across the website - when
+                 the window is resized the web pages remain readable and aesthetic</li>
+                <li>(NEED TO CHECK THIS!)Used XHTML validator (xmlns=http://www.w3.org/1999/xhtml)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class = "row report-element report-section" id="CSS-section">
+        <div class = "report-heading">
+            <h4>CSS</h4>
+        </div>
+        <div class = "report-text">
+            <ul class="report-text-spacing">
+                <li>CSS selectors were used to personalise the style of the website, taking advantage of the
+                  id and class tags to customise certain elements. Structuring the style sheet quickly became important because of how
+                  many different tags were required, and so a sensible order and naming convention was used to make style.css readable. </li>
+                <li>The Bootstrap 4 framework provided a significant amount of styling tools, allowing pages to quickly look aesthetic and professional
+                 with a single selector. These selectors were then modified to customise elements of the website and create a consistent style.</li>
+                 <li>Styling for every browser sizing was considered, especially on the learn pages, using responsive images and row/column system</li>
+                 <li> Included SVG line animation CSS code to animate the title and logo </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class = "row report-element report-section" id="JS-section">
+        <div class = "report-heading">
+            <h4>JavaScript</h4>
+        </div>
+        <div class = "report-text">
+            <ul class="report-text-spacing">
+                <li>We spent considerable time writing a custom animation script (bubblesort.js), a quiz generation script, and several
+                smaller functions to capture user login information from the navigation bar.</li>
+                <li>We have used the javascript anime.js and jQuery library for client-side animations, such as the section loading animation on this page.</li>
+                <li>Separated javascript for each page to optimise loading time</li>
+                <li>JS script for navbar – fields turn red when no info is entered, key listeners added to retrieve login/signup information</li>
+                <li>Created scrolling animation for smooth scrolling on all pages</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class = "row report-element report-section" id="PNG-section">
+        <div class = "report-heading">
+            <h4>PNG Images</h4>
+        </div>
+        <div class = "report-text">
+            <ul class="report-text-spacing">
+                <li> Initially, a PNG image was created in InkScape and used for our logo, but as the website design evolved it no longer suited
+                the aesthetic and so it was replaced with an SVG image which could be animated in a similar way to the title. </li>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4" style="text-align: right;">
+                    <img src="images/aa-ink.png" class="report-image"/>
+                </div>
+                <div class="col-xl-1 col-lg-1 col-md-1 col-sm-2 col-xs-2">
+
+                </div>
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4" style="text-align: left;">
+                    <img src="images/websitelogo.svg" class="report-image"/>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <div class = "row report-element report-section" id="SVG-section">
+        <div class = "report-heading">
+            <h4>SVG Images</h4>
+        </div>
+        <div class = "report-text">
+            <ul class="report-text-spacing">
+                <li>Designed and created the website logo in inkscape and converted to an svg file</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class = "row report-element report-section" id="server-section">
+        <div class = "report-heading">
+            <h4>Server</h4>
+        </div>
+        <div class = "report-text">
+            <ul class="report-text-spacing">
+                <li>Spent time learning node and express to set up own server and used several modules to help achieve this</li>
+                <li>Used helmet to deal with URL validation</li>
+                <li>Began to set up a https server, however was unable to get any further than self-certification</li>
+                <li>Hosted the website on herokuapp</li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class = "row report-element report-section" id="database-section">
+        <div class = "report-heading">
+            <h4>Database</h4>
+        </div>
+        <div class = "report-text">
+            <ul class="report-text-spacing">
+                <li>Setup a server side sqlite3 database ready for use with the dynamic pages.</li>
+                <li>Fully setup with constraints and foreign primary key interactions</li>
+                <li>Normalised Database, easy to query and was used both for inserting and selecting</li>
+                <li>Setup checks within server to avoid SQL exceptions being flagged</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class = "row report-element report-section" id="dynamic-section">
+        <div class = "report-heading">
+            <h4>Dynamic Pages</h4>
+        </div>
+        <div class = "report-text">
+            <ul class="report-text-spacing">
+                <li>Made use of EJS to dynamically deliver information to pages</li>
+                <li>Dynamically filled tables with scores for both a leaderboard and for users to see their previous attempts</li>
+                <li>Gained experience with sending and parsing JSON for use in partials</li>
+                <li>Changed the layout of the website based on if a user was logged in or not</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <%- include('../partials/footer') %>
+</footer>
+
+</body>
+</html>

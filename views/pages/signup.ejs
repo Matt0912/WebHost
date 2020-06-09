@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <%- include('../partials/head') %>
+</head>
+<body id="grad">
+
+<header>
+    <%- include('../partials/header') %>
+</header>
+
+<div class="container" style="text-align:center">
+    <div class="page-header page-title">
+        <h2 id="page-title">Create Account</h2>
+    </div>
+     
+    <div class = "form-container">
+        <form method = "POST" action= "register" onsubmit=" return signUpA()" id ="registerform" name = "registerForm">
+        
+        <!-- Enter First Name -->
+        <div class="row">
+            <h4>First Name:</h4>
+        </div>
+        <div class="row">
+            <input type="text" class="form-control" id="register-firstname"
+                    placeholder="First Name" name = "first1"/>
+        </div>
+
+        <!-- Enter Last Name -->
+        <div class="row login-page-row">
+            <h4>Last Name:</h4>
+        </div>
+        <div class="row">
+            <input type="text" class="form-control" id="register-lastname"
+                        placeholder="Last Name" name = "last1"/>
+        </div>
+
+        <!-- Enter Email -->
+        <div class="row">
+            <h4>Email:</h4>
+        </div>
+        <div class="row">
+            <input type="text" class="form-control" id="register-email"
+                    placeholder="example123@yahoo.com" name = "email"/>
+        </div>
+
+        <!-- Enter Username -->
+        <div class="row login-page-row">
+            <h4>Enter Username:</h4>
+        </div>
+        <div class="row">
+            <input type="text" class="form-control" id="register-username"
+                    placeholder="Username" name = "username2"/>
+        </div>
+
+        <!-- Enter Password -->
+        <div class="row login-page-row">
+            <h4>Enter Password:</h4>
+        </div>
+        <div class="row">
+            <input type="password" class="form-control" id="register-password" data-toggle="password"
+                        placeholder="Password" name = "password1"/>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="row login-page-row">
+            <h4>Confirm Password:</h4>
+        </div>
+        <div class="row">
+            <input type="password" class="form-control" id="register-password2" data-toggle="password"
+                        placeholder="Password" name = "password2"/>
+        </div>
+
+        <!-- Buttons -->
+        <div class="row login-page-row">
+            <div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <a href = "/loginredirect" class="button-link"><button type="button" class="btn-default login-button login-page-button"
+                    id="loginpage">Already have an account?</button></a>
+            </div>
+            <div class = "col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <button type="submit" class="btn-primary login-button login-page-button" id="create">Create Account</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <%- include('../partials/footer') %>
+</footer>
+
+</body>
+</html>

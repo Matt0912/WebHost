@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <%- include('../partials/head') %>
+</head>
+<body id="grad">
+
+<header>
+    <%- include('../partials/header') %>
+</header>
+
+<div class="container" style="text-align:center">
+    <div class="page-header page-title">
+        <h2 id="page-title">Login</h2>
+    </div>
+    <div class = "form-container">
+        <div class="row">
+             
+        <h4> <% if( type == null || type == undefined || type == false) {%> You must have an account to use this feature,<%}else{ %>Login failed, please try again -<%}%>
+            <a href="/signup" class="page-text-link">you can Sign Up</a> or Login below.</h4>
+                
+        </div>
+        <form method = "POST" action = "auth" id ="navloginform" name = "loginform">
+            
+            <div class="row">
+                <h4>Enter Username:</h4>
+            </div>
+            <div class="row">
+                <input type="text" class="form-control" id="login-username"
+                        placeholder="Username" name = "username"/>
+            </div>
+            <div class="row login-page-row">
+                <h4>Enter Password:</h4>
+            </div>
+            <div class="row">
+                <input type="password" class="form-control" id="login-password" data-toggle="password"
+                            placeholder="Password" name = "password"/>
+            </div>
+            <div class="row login-page-row">
+                <div class = "col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <a href = "/signup" class="button-link"><button type="button" class="btn-default login-button login-page-button"
+                    id="createaccount">Create New Account</button></a>
+                </div>
+                <div class = "col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <button type="submit" class="btn-primary login-button login-page-button" id="login">Login</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<footer>
+    <%- include('../partials/footer') %>
+</footer>
+
+</body>
+</html>
