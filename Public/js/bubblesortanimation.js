@@ -1,6 +1,12 @@
-/* Code taken from https://gosink.in/bubble-sort-css-javascript-animation/ and modified for our purposes */
+/* Bar sorting animation code taken from https://gosink.in/bubble-sort-css-javascript-animation/ and modified for our purposes */
 
+/* Retrieve all variables from HTML */
 const container = document.querySelector(".animation-container");
+var playButton = document.getElementById('animation-play');
+var resetButton = document.getElementById('animation-reset');
+var slider = document.getElementById('numblocks');
+var pauseButton = document.getElementById('animation-pause');
+var sliderOutputValue = document.getElementById("slider-value");
 var pauseButtonClicked = false;
 
 function generateBlocks(num) {
@@ -47,14 +53,8 @@ function swap(el1, el2) {
   });
 }
 
-pauseButton = document.getElementById('animation-pause');
-pauseButton.addEventListener('click', function() {
-    pauseButtonClicked = true;
-});
-
 function getPauseButtonStatus() {
     return pauseButtonClicked;
-
 }
 
 async function bubbleSort(delay) {
@@ -102,27 +102,91 @@ async function bubbleSort(delay) {
   resetButton.disabled = false;
 }
 
-generateBlocks(10);
+/* Personal code to animate the webpage title */
 
-var playButton = document.getElementById('animation-play');
-playButton.addEventListener('click', function() {
-    bubbleSort(100);
-});
+"use strict";
+var originalString = "mASbeborutBl lgorith";
+var startOrder = [21,13,8,3,6,4,9,10,2,11,1,5, 12, 14, 15, 16, 17,18,19,20];
 
-var resetButton = document.getElementById('animation-reset');
 
-var slider = document.getElementById('numblocks');
-var sliderOutputValue = document.getElementById("slider-value");
-sliderOutputValue.innerHTML = slider.value;
-
-slider.oninput = function() {
-  sliderOutputValue.innerHTML = this.value;
+// start order is array of numbers which indicate which position
+// each letter from the final string is in
+// e.g. "olleh" --- [4,3,2,1,0]
+function sortTitle(stringInput, startOrder) {
+    var input = stringInput.toString().split("");
+    var order = startOrder;
+    var length = input.length-1;
+    for (let j = 0; j < length*length; j++) {
+        setTimeout(function() {
+            for (let i=0; i < length; i++) {
+                swapNumbers(order, i);
+            }
+            length--;
+        }, 200*j);
+    }
 }
 
-resetButton.addEventListener('click', function() {
-    var number = parseInt(slider.value, 10);
-    generateBlocks(number);
+async function swapNumbers(currentOrder, i) {
+    await new Promise(resolve =>
+        setTimeout(() => {
+          resolve();
+        }, 100*i)
+      );
+//        setTimeout(function() {
+            var currentString = document.getElementById("page-title").innerText.split("");
+            if (currentOrder[i] > currentOrder[i+1]) {
+                var temp = currentOrder[i];
+                currentOrder[i] = currentOrder[i+1];
+                currentOrder[i+1] = temp;
+                temp = currentString[i];
+                currentString[i] = currentString[i+1].fontcolor('red');
+                currentString[i+1] = temp.fontcolor('red');
+                document.getElementById("page-title").innerHTML=currentString.join("");
+            }
+            else {
+                document.getElementById("page-title").innerHTML=currentString.join("").fontcolor("white");
+            }
+//        }, 100*i);
+}
+
+document.addEventListener("DOMContentLoaded",  function() {
+    /* Initialise and animate title*/
+    document.getElementById("page-title").innerText= originalString;
+    sortTitle(originalString, startOrder);
+    let animation = anime({
+        targets: ".page-title",
+        translateY: -10,
+        loop: 2,
+        direction: 'alternate',
+        duration: 1000,
+        easing: 'easeInOutSine'
+    });
+
+    /* Initialise animation section */
+    generateBlocks(10);
+
+    /* Add event listeners for animations control buttons */
+    playButton.addEventListener('click', function() {
+        bubbleSort(100);
+    });
+    pauseButton.addEventListener('click', function() {
+        pauseButtonClicked = true;
+    });
+
+    sliderOutputValue.innerHTML = slider.value;
+
+    slider.oninput = function() {
+      sliderOutputValue.innerHTML = this.value;
+    }
+
+    resetButton.addEventListener('click', function() {
+        var number = parseInt(slider.value, 10);
+        generateBlocks(number);
+    });
+
 });
+
+
 
 
 

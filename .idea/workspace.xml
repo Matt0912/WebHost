@@ -2,8 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e52b2ea3-6267-4440-8400-c07401e082ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/views/partials/head.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/head.ejs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/header.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/header.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/css/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/css/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/css/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/css/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/css/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/css/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/css/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/js/bubblesort.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/js/bubblesortanimation.js" beforeDir="false" afterPath="$PROJECT_DIR$/Public/js/bubblesortanimation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/learnbubble.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/learnbubble.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/learnhome.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/learnhome.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/testhome.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/testhome.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,5 +52,11 @@
       <updated>1591745142011</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="656" y="350" key="com.intellij.ide.util.TipDialog" timestamp="1591775287234">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="656" y="350" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1591775287234" />
   </component>
 </project>
