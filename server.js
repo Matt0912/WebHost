@@ -236,30 +236,12 @@ app.post('/auth', function(request, response) {
 	}
 });
 
-app.get('/account', function(req, res){
-    if(req.session.loggedin == true){
-        db.all("SELECT * FROM attempt WHERE userID = ? ",[req.session.username] ,(err,results)=>{
-            if(err){
-                console.error(err.message);
-            }
-           
-            res.render('pages/account', {login: req.session.loggedin,username:req.session.username,scores: results, email: results.email});
-            res.end();
-        });
-    }
-    else{
-
-    
-        res.redirect('loginredirect');
-    }
-});
-
 app.post('/register', function(request, response){
     var username = request.body.regusername;
     var password = request.body.regpassword;
     var email = request.body.regEmail;
     var firstname = request.body.first ;
-    var lastname = request.body.last;
+    var reglast = request.body.last;
     if(request.body.regusername == null){
         
         username = request.body.username2;
