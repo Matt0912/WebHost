@@ -17,11 +17,11 @@ async function initThis(){
             var stmt = db.prepare("INSERT INTO user(name, pw, email, firstname, lastname) VALUES(?,?,?,?,?)");
             stmt.run("tias", "m", "mathias.munk@javascript.com", "Mathias", "Munk");
             stmt.finalize();
-            db.each("SELECT name, pw FROM user", function(err, row){
+            db.each("SELECT id, name, pw FROM user", function(err, row){
                 if(err){
                     console.log(err.message);
                 }
-                console.log("User id: " +row.name, row.pw);
+                console.log("User id: " + row.id, row.name, row.pw);
             });
         db.serialize( async function(){
             var date = new Date();

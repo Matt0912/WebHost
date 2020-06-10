@@ -105,20 +105,20 @@ app.listen((process.env.PORT || 5000), ()=> {console.log('server running on port
 app.get('/result/:testid/:score',(req,res)=>{
     var date = new Date();
     var TIMESTAMP = date.toISOString();
-    const userId = req.session.userid;
-    const testid = req.params.testid;
-    const score = req.params.score;
-    console.log(userId +" "+ testid + " " + score);
-    db.serialize(function(){
+
+    db.all("Select id FROM user WHERE name = ?", [req.session.username], (err, results)=>{
+        const testid = req.params.testid;
+        const score = req.params.score;
+        const userId = results[0].id;
+        console.log(userId +" "+ testid + " " + score);
+        db.serialize(function(){
         var stmt = db.prepare("INSERT INTO attempt (userId, testId, score, timeCompleted) VALUES(?,?,?, ?)");
-        stmt.run(req.session.userid, testid, score, TIMESTAMP);
-        db.each("SELECT userID, testID, score FROM attempt", (err,row)=>{
-            if(err){
-                console.error(err.message);
-            }
-            console.log(row.userID + "\t" + row.testID + "\t" + row.score);
-        });
+        stmt.run(userId, testid, score, TIMESTAMP);
+        stmt.finalize();
+        console.log("made it past registering score");
     });
+    })
+
   });
 
   app.get('/testbubble', function(req,res){
@@ -183,11 +183,12 @@ app.get('/result/:testid/:score',(req,res)=>{
   
   app.get('/account', function(req,res){
       if(req.session.loggedin){
-        db.all("SELECT * FROM attempt JOIN user ON attempt.userID = user.id WHERE userID = ?",[req.session.userid], (err,results) =>{
+        db.all("SELECT * FROM user  LEFT JOIN attempt ON attempt.userID = user.id WHERE user.name = ?",[req.session.username], (err,results) =>{
             if(err){
                 console.error(err.message);
             }
           console.log(results);
+          console.log(req.session.userid);
           res.render('pages/account', {login: req.session.loggedin, username:req.session.username, scores: results});
         });
       }
@@ -204,8 +205,7 @@ app.post('/auth', function(request, response) {
     
     var username = request.body.username;
     var password = request.body.password;
-    
-    console.log(username);
+
 	if (username && password) {
         db.all("SELECT * FROM user WHERE name = ? AND pw = ? ",[username, password] ,(err,results)=>{
             if(err){
@@ -216,6 +216,7 @@ app.post('/auth', function(request, response) {
 				request.session.loggedin = true;
                 request.session.username = username;
                 request.session.userid = results[0].id;
+                console.log(results[0].id);
                 if(backurl){
                     response.redirect(backurl);
                 }
@@ -263,7 +264,7 @@ app.post('/register', function(request, response){
                 db.run("INSERT INTO user (name, pw,email,firstname,lastname) VALUES(?,?,?,?,?)",[username, password, email, firstname, lastname]);
                 request.session.username = username;
                 request.session.loggedin =  true;
-                request.session.userid = db.run("SELECT id FROM user WHERE name = ?", [username]);
+                request.session.userid = db.run("SELECT id FROM user WHERE name = ?", [username].id);
                 response.render('pages/learnhome',{login: request.session.loggedin, username:request.session.username});
 			}			
 			response.end();

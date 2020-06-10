@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e52b2ea3-6267-4440-8400-c07401e082ff" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/initdb.js" beforeDir="false" afterPath="$PROJECT_DIR$/Config/initdb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/account.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/account.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/learnhome.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/learnhome.ejs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/pages/report.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/views/pages/report.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
