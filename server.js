@@ -58,7 +58,7 @@ checkNew();
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 app.use(helmet());
-app.listen((process.env.PORT || 5000), ()=> {console.log('server running on port ${PORT}')});
+app.listen((process.env.PORT || 5000), ()=> {console.log('server running on http://localhost:5000/')});
 
   app.set('view engine', 'ejs');
 
@@ -217,12 +217,7 @@ app.post('/auth', function(request, response) {
                 request.session.username = username;
                 request.session.userid = results[0].id;
                 console.log(results[0].id);
-                if(backurl){
-                    response.redirect(backurl);
-                }
-                else{
-                    response.redirect('/');  
-                }
+                response.redirect('/');
 				
 			} else {
                 loginFail = true;
