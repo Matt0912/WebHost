@@ -9,6 +9,7 @@ var app = express();
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var questions = [];
+var passwordHash = require('password-hash')
 const helmet = require('helmet');
 const https = require('https'), fs = require("fs");
 
@@ -27,10 +28,10 @@ app.use("/bootstrap.html", auth);
 var options = { setHeaders: deliverXHTML, key: fs.readFileSync('key.pem'), cert: fs.readFileSync('cert.pem')};
 app.use(express.static(__dirname + "/Public"));
 app.use(session({
-	secret: 'secret',
-	resave: true,
+    secret: 'secret',
+    resave: true,
     saveUninitialized: true,
-    
+
 }));
 
 
@@ -38,20 +39,17 @@ var sqlite3 = require('sqlite3').verbose();
 let db;
 function checkNew(){
 try{
-    console.log("inside the try statement");
     if(fs.existsSync("./Config/testingdb")){
-        console.log("inside the use old statement");
         db = new sqlite3.Database("./Config/testingdb");
     }
     else{
-
         dbconfig.initThis();
         db = new sqlite3.Database("./Config/testingdb");
     }
 }
 catch(err){
     console.log(err);
-    
+
 }
 }
 checkNew();
@@ -74,13 +72,13 @@ app.listen((process.env.PORT || 5000), ()=> {console.log('server running on http
   app.get('/learnmerge', function(req, res) {
       res.render('pages/learnmerge', {login: req.session.loggedin, username:req.session.username});
   });
-  
+
   app.get('/learnquick', function(req, res) {
       res.render('pages/learnquick', {login: req.session.loggedin, username:req.session.username});
   });
 
   app.get('/testhome', async(req, res) =>{
-      
+
       db.all("SELECT * FROM attempt JOIN user ON attempt.userID = user.id ORDER BY attempt.score DESC ", (err,results)=>{
         if(err){
             console.error(err.message);
@@ -105,6 +103,7 @@ app.listen((process.env.PORT || 5000), ()=> {console.log('server running on http
 app.get('/result/:testid/:score',(req,res)=>{
     var date = new Date();
     var TIMESTAMP = date.toISOString();
+
 
     db.all("Select id FROM user WHERE name = ?", [req.session.username], (err, results)=>{
         const testid = req.params.testid;
@@ -163,16 +162,15 @@ app.get('/result/:testid/:score',(req,res)=>{
     setTimeout(function(){
           console.log("hi" + JSON.stringify(questions));
           res.send(questions);
-    }, 100);  
+    }, 100);
   });
 
   app.get('/report', function(req,res){
         res.render('pages/report',{login: req.session.loggedin, username:req.session.username});
   });
-  
+
   app.get('/loginredirect', function(req,res){
     var typeOfDirect = false;
-    console.log("inside redirect");
     if(loginFail ==  true){
         typeOfDirect = true;
         loginFail = false;
@@ -180,15 +178,17 @@ app.get('/result/:testid/:score',(req,res)=>{
         res.render('pages/login',{login: req.session.loggedin, username:req.session.username, type:typeOfDirect});
   });
 
-  
+
   app.get('/account', function(req,res){
+      console.log(req.session.username);
       if(req.session.loggedin){
+
         db.all("SELECT * FROM user  LEFT JOIN attempt ON attempt.userID = user.id WHERE user.name = ?",[req.session.username], (err,results) =>{
             if(err){
                 console.error(err.message);
             }
+          console.log("through the if");
           console.log(results);
-          console.log(req.session.userid);
           res.render('pages/account', {login: req.session.loggedin, username:req.session.username, scores: results});
         });
       }
@@ -201,68 +201,87 @@ app.get('/result/:testid/:score',(req,res)=>{
   });
 
 app.post('/auth', function(request, response) {
-    
-    
+
+
     var username = request.body.username;
     var password = request.body.password;
 
-	if (username && password) {
-        db.all("SELECT * FROM user WHERE name = ? AND pw = ? ",[username, password] ,(err,results)=>{
+    console.log(username);
+    if (username && password) {
+        db.all("SELECT * FROM user WHERE name = ?",[username] ,(err,results)=>{
             if(err){
                 console.error(err.message);
             }
             console.log(results.length);
-			if (results.length > 0) {
-				request.session.loggedin = true;
-                request.session.username = username;
-                request.session.userid = results[0].id;
-                console.log(results[0].id);
-                response.redirect('/');
-				
-			} else {
+            if (results.length > 0) {
+                console.log()
+                if(passwordHash.verify(password, results[0].pw)){
+                    request.session.loggedin = true;
+                    request.session.username = username;
+
+
+                    response.redirect('/');
+
+                }
+                else{
+                    loginFail = true;
+                    response.redirect('/loginredirect')
+                }
+
+            } else {
                 loginFail = true;
-				response.redirect('/loginredirect')
-			}			
-			response.end();
+                response.redirect('/loginredirect')
+            }
+            response.end();
         });
     }
-	 else {
+     else {
          loginfail = true;
-		response.redirect('/logindirect')
-	}
+        response.redirect('/logindirect')
+    }
 });
+
+
 
 app.post('/register', function(request, response){
     var username = request.body.regusername;
     var password = request.body.regpassword;
     var email = request.body.regEmail;
-    var firstname = request.body.first ;
+    var firstname = request.body.first;
     var lastname = request.body.reglast;
     if(request.body.regusername == null){
-        
+
         username = request.body.username2;
         password = request.body.password2;
         email = request.body.email;
         firstname = request.body.first1;
         lastname = request.body.last1;
     }
-
-    if(username && password && email){
+    console.log(email + firstname + lastname);
+    if(username && password && email && firstname && lastname){
         db.all("SELECT * FROM user WHERE name = ?",[username] ,(err,results)=>{
             if(err){
                 console.error(err.message);
             }
             console.log(results.length);
-			if (results.length > 0) {
-				response.redirect("/loginredirect");
-			} else {
-                db.run("INSERT INTO user (name, pw,email,firstname,lastname) VALUES(?,?,?,?,?)",[username, password, email, firstname, lastname]);
+            if (results.length > 0) {
+                response.redirect("/loginredirect");
+            } else {
+                db.run("INSERT INTO user (name, pw,email,firstname,lastname) VALUES(?,?,?,?,?)",[username,passwordHash.generate(password), email, firstname, lastname]);
                 request.session.username = username;
                 request.session.loggedin =  true;
-                request.session.userid = db.run("SELECT id FROM user WHERE name = ?", [username].id);
+                console.log(request.session.username);
+                request.session.userid = db.run("SELECT count(1) FROM user");
+                console.log(request.session.userid);
+                db.each("SELECT name, firstname, email, pw FROM user", function(err, row){
+                    if(err){
+                        console.log(err.message);
+                    }
+                    console.log("User id: " +row.name, row.pw, row.firstname, row.email);
+                });
                 response.render('pages/learnhome',{login: request.session.loggedin, username:request.session.username});
-			}			
-			response.end();
+            }
+            response.end();
         });
     }
     else{
@@ -270,7 +289,7 @@ app.post('/register', function(request, response){
     }
 });
 app.get('/logout', function(request,response){
-    
+
     request.session.loggedin = false;
     request.session.username = "";
     response.redirect('/');
@@ -297,7 +316,7 @@ function ban(req, res, next) {
 
 // Redirect the browser to the login page.
 function auth(req, res, next) {
-    
+
     res.redirect("/pagetemplate.html");
 }
 
@@ -331,12 +350,12 @@ function banUpperCase(root, folder) {
 
 
 function getQuestions(testID){
-    
+
     let sql = 'SELECT question, answer1, answer2, answer3, correct FROM questions WHERE test = ?'
     questions = [];
     db.serialize(function(){
 
-    
+
      db.all(sql, [testID], (err, rows) =>{
         if(err){
             throw err;
@@ -346,18 +365,15 @@ function getQuestions(testID){
                 'question': row.question,
                 'answers':{
                     a: row.answer1,
-                    b: row.answer2, 
+                    b: row.answer2,
                     c: row.answer3,
                 },
                 'correctAnswer': row.correct
             })
             )
-          
+
         console.log(questions.length);
     });
     });
     console.log(questions.length + "bottom of test q's");
 }
-
-
-
