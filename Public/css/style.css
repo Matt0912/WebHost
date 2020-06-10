@@ -176,6 +176,10 @@
     text-decoration: none;
 }
 
+#page-text {
+    padding-bottom: 30px;
+}
+
 .button-link {
     text-decoration: none;
 }
@@ -233,6 +237,12 @@
 
 .report-text-link {
     color: #6FBEEC;
+    font-style: italic;
+    text-decoration: none;
+}
+
+.text-link {
+    color: #eee;
     font-style: italic;
     text-decoration: none;
 }
