@@ -174,13 +174,14 @@
                 otherwise the page and its corresponding style sheet quickly become difficult to format. This was a steep learning curve
                 but by the end, we were both happy with our ability to create a nicely-formatted, readable website.</li>
                 <li>The EJS framework was adopted to deliver pages using partials as templates (i.e. the head, header, and footer sections). Prior to
-                this, the code was repeated for every page which wasn't sustainable, or good practice.</li>
+                this, the code was repeated for every page which wasn't sustainable, or good practice. Now that the website contains 12 unique pages,
+                we're glad we switched to templates early in the development process.</li>
                 <li>The Bootstrap 4 framework has been implemented, giving access to its wide range of pre-built components and allowing seamless,
                 responsive web-pages to be created.</li>
                 <li>Bootstrap also allows elements to reformat depending on the window size to accommodate mobile and desktop users. This can be seen
                  in the navigation bar, the <a href="/learnhome" class="report-text-link">Learn - Home</a> page, and across the website - when
                  the window is resized the web pages remain readable and aesthetic</li>
-                <li>(NEED TO CHECK THIS!)Used XHTML validator (xmlns=http://www.w3.org/1999/xhtml)</li>
+                <li>All pages are delivered using the XHTML standard.</li>
             </ul>
         </div>
     </div>
@@ -196,8 +197,9 @@
                   many different tags were required, and so a sensible order and naming convention was used to make style.css readable. </li>
                 <li>The Bootstrap 4 framework provided a significant amount of styling tools, allowing pages to quickly look aesthetic and professional
                  with a single selector. These selectors were then modified to customise elements of the website and create a consistent style.</li>
-                 <li>Styling for every browser sizing was considered, especially on the learn pages, using responsive images and row/column system</li>
-                 <li> Included SVG line animation CSS code to animate the title and logo </li>
+                 <li>Styling for different browser sizes was considered, especially on the learn pages, using responsive images and the Bootstrap
+                 row/column system.</li>
+                 <li> SVG line animation was added to the title and logo using CSS code. </li>
             </ul>
         </div>
     </div>
@@ -208,12 +210,16 @@
         </div>
         <div class = "report-text">
             <ul class="report-text-spacing">
-                <li>We spent considerable time writing a custom animation script (bubblesort.js), a quiz generation script, and several
-                smaller functions to capture user login information from the navigation bar.</li>
-                <li>We have used the javascript anime.js and jQuery library for client-side animations, such as the section loading animation on this page.</li>
-                <li>Separated javascript for each page to optimise loading time</li>
-                <li>JS script for navbar – fields turn red when no info is entered, key listeners added to retrieve login/signup information</li>
-                <li>Created scrolling animation for smooth scrolling on all pages</li>
+                <li>We spent considerable time writing a custom animation script (bubblesortanimation.js), adapting a quiz generation script which could be
+                populated using the database, and several other customised animations to create a certain feel for the website.</li>
+                <li>We have used the JavaScript anime.js and jQuery libraries for client-side animations, such as the section loading animation on this page.</li>
+                <li>The JavaScript for each page has been separated to optimise loading time</li>
+                <li>A custom login script was added for login/sign-up functionality on the navigation bar and the
+                 login/sign-up pages. The input fields turn red when no information is entered, and key listeners were
+                 added to allow form submission by pressing the Enter key, and to retrieve login/signup information</li>
+                 <li>The JavaScript framework EJS (Embedded JavaScript) was used for page delivery and templating (see dynamic pages).</li>
+                 <li>JavaScript is an area where we both feel we have learnt a considerable amount for both front and back-end applications,
+                 especially given we had no previous experience using the language.</li>
             </ul>
         </div>
     </div>
@@ -224,6 +230,14 @@
         </div>
         <div class = "report-text">
             <ul class="report-text-spacing">
+                <li>We constructed several PNG images using a variety of tools in GIMP.</li>
+                <li>To construct the placeholder images for the YouTube videos on the learn pages, we
+                first downloaded the thumbnails for the relevant videos. This was imported into GIMP
+                and then a YouTube play button icon with a transparent background was added as a
+                new layer.</li>
+                <li>To create the student and graph information icons in GIMP was a little trickier. We needed to
+                overlay complex selections to get the shapes we required. Some of these selections were
+                filled and some were transparent.</li>
                 <li> Initially, a PNG image was created in InkScape and used for our logo, but as the website design evolved it no longer suited
                 the aesthetic and so it was replaced with an SVG image which could be animated in a similar way to the title. </li>
                 <div class="row">
@@ -250,7 +264,12 @@
         </div>
         <div class = "report-text">
             <ul class="report-text-spacing">
-                <li>Designed and created the website logo in inkscape and converted to an svg file</li>
+                <li>Both the website logo and heading were created in InkScape, first by finding and importing a suitable font,
+                then by modifiying different aspects like gradient and stroke. The InkScape rendering was then combined and exported
+                as an SVG with a single path - this was essential for the CSS animation we wanted to add to it.</li>
+                <li>While the design isn't too complicated, this is the 5th iteration of both the logo and title designs
+                and going through this process, we both feel that we have gained a lot of experience using InkScape.</li>
+                <li>Implementing different CSS/JS animations across these various designs also improved our SVG knowledge.
             </ul>
         </div>
     </div>
@@ -261,11 +280,17 @@
         </div>
         <div class = "report-text">
             <ul class="report-text-spacing">
-                <li>Spent time learning node and express to set up own server and used several modules to help achieve this</li>
-                <li>Used helmet to deal with URL validation</li>
-                <li>Began to set up a https server, however was unable to get any further than self-certification</li>
-                <li>Hosted the website on herokuapp</li>
-                <li></li>
+                <li>A lot of time was spent time learning Node.js and express to set up our own server,
+                and several other modules were implemented to help achieve this, including password-hash, sqlite3
+                and body-parser.</li>
+                <li>Helmet.js was added to deal with URL validation. </li>
+                <li>Began to set up a https server, however we were unable to get any further than self-certification. Unfortunately,
+                when setting up remote hosting for our website, the self certification prevented this and so we had to remove it.</li>
+                <li><a href="https://dashboard.heroku.com/" class="report-text-link">Heroku</a> was used to host
+                 our website remotely - <a href="https://pacific-brook-65939.herokuapp.com/" class="report-text-link">Click here to view</a>.</li>
+                <li>Login functionality was added which redirected the user back to the page they were on upon login,
+                and if they accessed a page which required logging in, they were redirected to the login page. Password hashing
+                was also implemented to protect user data</li>
             </ul>
         </div>
     </div>
@@ -276,10 +301,14 @@
         </div>
         <div class = "report-text">
             <ul class="report-text-spacing">
-                <li>Setup a server side sqlite3 database ready for use with the dynamic pages.</li>
-                <li>Fully setup with constraints and foreign primary key interactions</li>
-                <li>Normalised Database, easy to query and was used both for inserting and selecting</li>
-                <li>Setup checks within server to avoid SQL exceptions being flagged</li>
+                <li>A server side SQLite3 database was setup, ready to use with dynamic pages and to store user information.
+                A database schema was designed with constraints and foreign primary key interactions. The database was
+                essential for our website as it populates the quiz information, leaderboards, account page information, and
+                records and validates user logins.</li>
+                <li>The database was also normalised, making it easy to query and insert/select data. This allowed
+                more complicated queries to be completed, such as the joins required to display both the user data
+                and their previous test attempts on the <a href = "/account" class="report-text-link">account page</a>.</li>
+                <li>Checks were setup within the server to avoid SQL exceptions being flagged</li>
             </ul>
         </div>
     </div>
@@ -290,10 +319,16 @@
         </div>
         <div class = "report-text">
             <ul class="report-text-spacing">
-                <li>Made use of EJS to dynamically deliver information to pages</li>
-                <li>Dynamically filled tables with scores for both a leaderboard and for users to see their previous attempts</li>
-                <li>Gained experience with sending and parsing JSON for use in partials</li>
-                <li>Changed the layout of the website based on if a user was logged in or not</li>
+                <li>The EJS framework was implemented to dynamically deliver information to pages, allowing us to create
+                page templates for the constant elements such as the header and footer.</li>
+                <li>Tables were dynamically filled with scores for both the test leaderboards, and for users to see their
+                personal previous attempts</li>
+                <li>We both gained experience with sending and parsing JSON for use in partials.</li>
+                <li>The website layout dynamically changed based on if a user was logged in or not, specifically the
+                icons available in the navigation bar.</li>
+                <li>Dynamic page delivery allowed us to simply create one quiz.js script which could work for every test
+                page, because the script determines which page it's currently on and populates each quiz with the correct
+                HTML.</li>
             </ul>
         </div>
     </div>
