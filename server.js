@@ -241,7 +241,7 @@ app.post('/register', function(request, response){
     var password = request.body.regpassword;
     var email = request.body.regEmail;
     var firstname = request.body.first ;
-    var reglast = request.body.last;
+    var lastname = request.body.reglast;
     if(request.body.regusername == null){
         
         username = request.body.username2;
