@@ -78,9 +78,10 @@ function signUpB() {
         flag=false;
     }
     else{
-        if(password !=  password2){
+        if(password.localCompare(password2) != 0){
             document.getElementById("signUp-password").style.borderColor = "red";
             document.getElementById("signUp-password2").style.borderColor = "red";
+            alert("Passwords do not match - please try again");
             flag = false;
         }
     }
@@ -120,10 +121,15 @@ function signUpA() {
         document.getElementById("register-password").style.borderColor = "red";
         flag=false;
     }
+    if (password2.length == 0) {
+        document.getElementById("register-password2").style.borderColor = "red";
+        flag=false;
+    }
     else{
-        if(password !=  password2){
+        if(password.localCompare(password2) != 0){
             document.getElementById("register-password").style.borderColor = "red";
             document.getElementById("register-password2").style.borderColor = "red";
+            alert("Passwords do not match - please try again");
             flag = false;
         }
     }
