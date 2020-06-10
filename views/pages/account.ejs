@@ -12,17 +12,51 @@
 <div class="container">
     
     <div class="page-header page-title">
-        <h1 class="title" id="page-title">Test Yourself!</h1>
+        <h1 class="title" id="page-title">Account Details</h1>
     </div>
-    <h3 id="page-text" class="text-center">Now that you've learnt all about the different algorithms we can
-    use, why not test yourself?</h3>
+    <div class="container account-details">
+        <div class="row waypoint">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="text-align:right">
+                <h2 class="report-text-spacing">First Name: </h2>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="text-align:left">
+                <h2 class="report-text-spacing"><%=scores[0].firstname %></h2>
+            </div>
+        </div>
+
+        <div class="row waypoint">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="text-align:right">
+                <h2 class="report-text-spacing">Last Name: </h2>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="text-align:left">
+                <h2 class="report-text-spacing"><%=scores[0].lastname %></h2>
+            </div>
+        </div>
+
+        <div class="row waypoint">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="text-align:right">
+                <h2 class="report-text-spacing">Username: </h2>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="text-align:left">
+                <h2 class="report-text-spacing"><%=username %> </h2>
+            </div>
+        </div>
+
+        <div class="row waypoint">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="text-align:right">
+                <h2 class="report-text-spacing">Email: </h2>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="text-align:left">
+                <h2 class="report-text-spacing"><%=scores[0].email %> </h2>
+            </div>
+        </div>
+
+    </div>
     <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-            <div class="jumbotron" id="jumbo-test">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 waypoint">
+            <div class="jumbotron report-element" id="jumbo-test">
+                <div class="report-heading"><h3>Bubble Sort</h3></div>
                 <a href="/testbubble" class="btn btn-warning btn-lg" id="sort-buttons" role="button">Bubble Sort</a>
-                <!-- The table class adds nice spacing and the other classes add additional style -->
-                <!-- bordered = border, table-striped = adds striped, can be modified in css,
-                hover = highlights cells which are hovered over -->
                 <table class="table table-bordered">
                     <thead class = "text-center">
                     <tr>
@@ -56,8 +90,9 @@
                 </table>
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-            <div class="jumbotron" id="jumbo-test">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 waypoint">
+            <div class="jumbotron report-element" id="jumbo-test">
+                <div class="report-heading"><h3>Merge Sort</h3></div>
                 <a href="/testmerge" class="btn btn-warning btn-lg" id="sort-buttons" role="button">Merge Sort</a>
                 <table class="table table-bordered">
                 <thead class = "text-center">
@@ -94,8 +129,9 @@
             </table>
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-            <div class="jumbotron" id="jumbo-test">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 waypoint">
+            <div class="jumbotron report-element" id="jumbo-test">
+                <div class="report-heading"><h3>Quick Sort</h3></div>
                 <a href="/testquick" class="btn btn-warning btn-lg" id="sort-buttons" role="button">Quick Sort</a>
                 <table class="table table-bordered">
                 <thead class = "text-center">

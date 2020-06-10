@@ -128,7 +128,7 @@ function signUpA() {
         }
     }
 
-    let check = /^[A-Za-z]\w{7,14}$/
+    let check = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
     if(!password.match(check)){
         document.getElementById("register-password").style.borderColor = "red";
         flag=false;

@@ -71,6 +71,11 @@
 	left: 0;
 }
 
+.account-details {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dee2e6;
+}
+
 .report-image {
     margin-top: 20px;
     width: 60%;
