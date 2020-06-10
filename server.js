@@ -38,10 +38,13 @@ var sqlite3 = require('sqlite3').verbose();
 let db;
 function checkNew(){
 try{
+    console.log("inside the try statement");
     if(fs.existsSync("./Config/testingdb")){
+        console.log("inside the use old statement");
         db = new sqlite3.Database("./Config/testingdb");
     }
     else{
+
         dbconfig.initThis();
         db = new sqlite3.Database("./Config/testingdb");
     }
@@ -55,7 +58,7 @@ checkNew();
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 app.use(helmet());
-app.listen((process.env.PORT || 5000), ()=> {console.log('server running on http://localhost:5000/')});
+app.listen((process.env.PORT || 5000), ()=> {console.log('server running on port ${PORT}')});
 
   app.set('view engine', 'ejs');
 
@@ -169,6 +172,7 @@ app.get('/result/:testid/:score',(req,res)=>{
   
   app.get('/loginredirect', function(req,res){
     var typeOfDirect = false;
+    console.log("inside redirect");
     if(loginFail ==  true){
         typeOfDirect = true;
         loginFail = false;
