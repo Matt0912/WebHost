@@ -187,7 +187,7 @@ app.get('/result/:testid/:score',(req,res)=>{
             if(err){
                 console.error(err.message);
             }
-          
+          console.log(results);
           res.render('pages/account', {login: req.session.loggedin, username:req.session.username, scores: results});
         });
       }
